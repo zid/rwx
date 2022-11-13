@@ -1,5 +1,7 @@
-	[org 0x7c00]
+global BEGIN_PM
+extern print_real, switch_pm, print_pm
 
+bits 16
 	mov bp, 0x9000
 	mov sp, bp
 
@@ -10,12 +12,7 @@
 
 	jmp $
 
-	%include "gdt.asm"
-	%include "print_real.asm"
-	%include "print_pm.asm"
-	%include "switch_pm.asm"
-
-	[bits 32]
+bits 32
 BEGIN_PM:
 
 	mov ebx, MSG_PROT_MODE

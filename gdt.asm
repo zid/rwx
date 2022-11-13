@@ -17,6 +17,8 @@
 ;;;  NOTE: Data segment will be the same, except for Code (0), Expand Down (0), Writable (1),
 ;;;  and Accessed (0)
 
+global gdt_descriptor, CODE_SEG, DATA_SEG
+
 gdt_start:
 	dd 0x0
 	dd 0x0

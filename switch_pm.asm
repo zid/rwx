@@ -1,4 +1,8 @@
-[bits 16]
+bits 16
+global switch_pm
+
+extern CODE_SEG, DATA_SEG, gdt_descriptor, BEGIN_PM
+
 switch_pm:
 	cli
 	lgdt [gdt_descriptor]
@@ -10,7 +14,7 @@ switch_pm:
 	jmp CODE_SEG:init_pm
 
 
-	[bits 32]
+bits 32
 init_pm:
 
 	mov ax, DATA_SEG
