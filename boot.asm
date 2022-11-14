@@ -1,6 +1,7 @@
 global BEGIN_PM
 extern print_real, switch_pm, print_pm
 
+section .text
 bits 16
 	mov bp, 0x9000
 	mov sp, bp
@@ -20,9 +21,6 @@ BEGIN_PM:
 	
 	jmp $
 
-
+section .data
 	MSG_REAL_MODE db "Started in 16-bit Real Mode", 0
 	MSG_PROT_MODE db "Successfully landed in 32-bit Protected Mode", 0
-
-	times 510-($-$$) db 0
-	dw 0xaa55

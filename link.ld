@@ -6,10 +6,8 @@ SECTIONS
 	{
 		boot.o (.text);
 		* (.text);
-		* (.rodata);
 		* (.data);
-		* (.bss);
-		. = 0x7DFE;
+		. = 0x200 - 2;
 		BYTE(0x55);
 		BYTE(0xAA);
 	}
